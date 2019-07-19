@@ -8,3 +8,7 @@
 `npm run dev`
 
 `npm start`
+
+ToDo:
+- Add cors
+- Add logging
