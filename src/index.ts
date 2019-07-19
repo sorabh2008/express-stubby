@@ -1,7 +1,10 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
 import fs from 'fs';
+import cors from 'cors';
 
 const app: Application = express();
+
+app.use(cors());
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
     res.send("I am ruunning!!!");

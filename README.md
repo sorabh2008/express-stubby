@@ -10,5 +10,4 @@
 `npm start`
 
 ## ToDo:
-- Add cors
 - Add logging
