@@ -18,4 +18,4 @@ app.get('/stubs/:id', (req: Request, res: Response) => {
     }
 
 })
-app.listen(9000, () => console.log("Server running on port 9000"));
+app.listen(9000, '0.0.0.0', () => console.log("Server running on port 9000"));

@@ -11,3 +11,4 @@
 
 ## ToDo:
 - Add logging
+- Containerize
