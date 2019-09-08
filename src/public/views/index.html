@@ -1,0 +1,123 @@
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title><%= title %></title>
+  <link rel="shortcut icon" href="favicon.ico" />
+  <style type="text/css">
+    body {
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    footer {
+      margin-top: 50px
+    }
+
+    footer .disclaimer {
+      bottom: 0;
+      width: 100%;
+      min-height: 1px;
+      background-color: #1a1d1f;
+      display: flex;
+      align-items: center;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      z-index: 100;
+      border-bottom: 0;
+    }
+
+    footer .disclaimer a,
+    footer .disclaimer p {
+      color: #fff;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      left: 0;
+      top: 0;
+      border-top: 0;
+      z-index: 100;
+    }
+
+    header .navbar {
+      background: #000;
+    }
+
+    header .navbar a {
+      color: #fff;
+    }
+
+    main {
+      padding: 50px 0 0 0;
+    }
+
+    #page-Page1-termAndConditionTitle {
+      z-index: 0 !important;
+    }
+
+    #page-panel5-btnGroup-submitBtn {
+      display: none !important;
+    }
+
+    .redirect-buttons {
+      position: absolute;
+      margin-top: 24px;
+      margin-left: 159px;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 24px;
+      background: rgb(44, 133, 60);
+      border-radius: 3px;
+    }
+    
+    main {
+      padding: 0 !important;
+    }
+  </style>
+  <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header" style="display: flex; align-items: center; padding-left:32px">
+
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div id="digitalForms" />
+  </main>
+
+  <script type="text/javascript">
+    window.onload = function () {
+      if (digitalFormsgoogle) {
+        digitalFormsgoogle.createForm('digitalForms', {
+          appconfig: {
+            "theme": "default",
+            "formurl": 'alohomora.json',
+            "biocatch": { enabled: false },
+            // "apiurl": 'http://35.189.12.10/stubs',
+            "apiurl": '/stubs',
+            "projecturl": '/',
+            'usetoken': false,
+            privacyinformation: { hidden: true }
+          },
+          appd: {
+            enabled: false,
+          }
+        });
+
+      }
+    }
+  </script>
+
+  <script type="text/javascript" src="/views/index.js"></script>
+
+</html>
