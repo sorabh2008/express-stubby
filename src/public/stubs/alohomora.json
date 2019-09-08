@@ -519,7 +519,7 @@
         },
         {
           "type": "htmlelement",
-          "content": "<a class='redirect-buttons' href='/stubs/submission'>View Results</button>"
+          "content": "<a class='redirect-buttons' href='/stubs/submission?formdata={{JSON.stringify(data)}}'>View Results</button>"
         }
       ],
       "collapsed": false,

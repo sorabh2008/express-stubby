@@ -6,88 +6,26 @@
   <title><%= title %></title>
   <link rel="shortcut icon" href="favicon.ico" />
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.2/rangeslider.css"
-    integrity="sha256-jJApoDvazb6sRGbc3gE+wdEAE0cE0H1Ag3k1qCada9c=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.2/rangeslider.css" />
+
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/fonts/FontAwesome.otf">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/fonts/fontawesome-webfont.eot">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/fonts/fontawesome-webfont.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/fonts/fontawesome-webfont.ttf">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/fonts/fontawesome-webfont.woff">
 
   <link rel="stylesheet" href="/views/graphicaldata.css" />
 
-  <style type="text/css">
-    body {
-      margin: 0;
-      background: #f5f5f5;
-    }
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    footer {
-      margin-top: 50px
-    }
-
-    footer .disclaimer {
-      bottom: 0;
-      width: 100%;
-      min-height: 1px;
-      background-color: #1a1d1f;
-      display: flex;
-      align-items: center;
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      z-index: 100;
-      border-bottom: 0;
-    }
-
-    footer .disclaimer a,
-    footer .disclaimer p {
-      color: #fff;
-    }
-
-    header {
-      position: fixed;
-      width: 100%;
-      left: 0;
-      top: 0;
-      border-top: 0;
-      z-index: 100;
-    }
-
-    header .navbar {
-      background: #000;
-    }
-
-    header .navbar a {
-      color: #fff;
-    }
-
-    main {
-      padding: 50px 0 0 0;
-    }
-
-    #page-Page1-termAndConditionTitle {
-      z-index: 0 !important;
-    }
-
-    .likely-text {
-      padding: 24px;
-    }
-  </style>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.2/rangeslider.min.js"
-    integrity="sha256-vFhEtGnaQ2xB+yjBTSXxssthNcfdbzu+lmLYhCdp2Cc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.2/rangeslider.min.js"></script>
 </head>
 
 <body>
-  <header>
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header" style="display: flex; align-items: center; padding-left:32px">
-
-        </div>
-      </div>
-    </nav>
-  </header>
   <main>
     <div class="row">
       <div class="col">
@@ -99,7 +37,7 @@
             <h5 class="card-title">How likely are you to be bankrupt</h5>
             <div class="card-text">
               <div id='wrapper'>
-                  <div class="card-text floatleft likely-text">Least Likely</div>
+                <div class="card-text floatleft likely-text">Least Likely</div>
                 <div class='smiley-green floatleft'>
                   <div class='left-eye'></div>
                   <div class='right-eye'></div>
@@ -119,9 +57,6 @@
               </div>
             </div>
           </div>
-          <div class="card-footer text-muted">
-            2 days ago
-          </div>
         </div>
 
         <div class="card">
@@ -131,27 +66,40 @@
           <div class="card-body">
             <h5 class="card-title">Spending</h5>
             <div class="card-text">
-              <input name="spending" id="spending-range" type="range" min="10" max="1000" step="10" value="300">
+              <input name="spending" id="spending-range" type="range" min="10000" max="120000" step="10" value="300">
+              <div class="range">
+                <small class="min pull-left">Min</small>
+                <small class="max pull-right">Max</small>
+              </div>
             </div>
 
             <h5 class="card-title">Credit</h5>
             <div class="card-text">
               <input name="credit" id="credit-range" type="range" min="10" max="1000" step="10" value="300">
+              <div class="range">
+                <small class="min pull-left">Min</small>
+                <small class="max pull-right">Max</small>
+              </div>
             </div>
 
             <h5 class="card-title">Wages</h5>
             <div class="card-text">
-              <input name="wages" id="wages-range" type="range" min="10" max="1000" step="10" value="300">
+              <input name="wages" id="wages-range" type="range" min="10000" max="100000" step="10" value="300">
+              <div class="range">
+                <small class="min pull-left">Min</small>
+                <small class="max pull-right">Max</small>
+              </div>
             </div>
 
             <h5 class="card-title">Assets</h5>
             <div class="card-text">
-              <input name="assets" id="assets-range" type="range" min="10" max="1000" step="10" value="300">
+              <input name="assets" id="assets-range" type="range" min="10000" max="500000" step="10" value="300">
+              <div class="range">
+                <small class="min pull-left">Min</small>
+                <small class="max pull-right">Max</small>
+              </div>
             </div>
 
-          </div>
-          <div class="card-footer text-muted">
-            2 days ago
           </div>
         </div>
       </div>
@@ -161,5 +109,116 @@
 
 
   <!-- <script type="text/javascript" src="/views/index.js"></script> -->
+  <script>
+    function getQuerystring(key) {
+      var query = window.location.search.substring(1);
+      //alert(query);
+      var vars = query.split("&");
+      for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        if (pair[0] == key) {
+          return pair[1];
+        }
+      }
+    }
+
+    var rawFormData = JSON.parse(decodeURIComponent(getQuerystring('formdata')))
+    console.log('formdata', rawFormData)
+
+    
+
+    {
+      //custom slider javascript
+      let $element = $('#spending-range');
+      let $handle;
+      $element
+        .rangeslider({
+          polyfill: false,
+          onInit: function () {
+            $handle = $(".rangeslider__handle", this.$range);
+            updateHandle($handle[0], this.value);
+          }
+        })
+        .on("input", function () {
+          updateHandle($handle[0], this.value);
+        });
+
+      function updateHandle(el, val) {
+        el.textContent = " " + "$" + val + " ";
+      }
+    }
+
+    {
+      //custom slider javascript
+      let $element = $('#credit-range');
+      let $handle;
+      $element
+        .rangeslider({
+          polyfill: false,
+          onInit: function () {
+            $handle = $(".rangeslider__handle", this.$range);
+            updateHandle($handle[0], this.value);
+          }
+        })
+        .on("input", function () {
+          updateHandle($handle[0], this.value);
+        });
+
+      function updateHandle(el, val) {
+        el.textContent = " " + "$" + val + " ";
+      }
+    }
+
+    {
+      //custom slider javascript
+      let $element = $('#wages-range');
+      let $handle;
+      $element
+        .rangeslider({
+          polyfill: false,
+          onInit: function () {
+            $handle = $(".rangeslider__handle", this.$range);
+            updateHandle($handle[0], this.value);
+          }
+        })
+        .on("input", function () {
+          updateHandle($handle[0], this.value);
+        });
+
+      function updateHandle(el, val) {
+        el.textContent = " " + "$" + val + " ";
+      }
+    }
+
+    {
+      //custom slider javascript
+      let $element = $('#assets-range');
+      let $handle;
+      $element
+        .rangeslider({
+          polyfill: false,
+          onInit: function () {
+            $handle = $(".rangeslider__handle", this.$range);
+            updateHandle($handle[0], this.value);
+          }
+        })
+        .on("input", function () {
+          updateHandle($handle[0], this.value);
+        });
+
+      function updateHandle(el, val) {
+        el.textContent = " " + "$" + val + " ";
+      }
+    }
+
+
+    $(document).ready(function () {
+      //when slider changes, hide start message
+      $("input").on("change", function () {
+        $("#helper").fadeOut("slow");
+      });
+    });
+
+  </script>
 
 </html>
