@@ -27,9 +27,9 @@
 
 <body>
   <main>
-    <div class="row">
+    <div class="row row-with-margin">
       <div class="col">
-        <div class="card">
+        <div class="card bg-light">
           <div class="card-header">
             Prediction
           </div>
@@ -58,8 +58,12 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
 
-        <div class="card">
+    <div class="row row-with-margin">
+      <div class="col">
+        <div class="card bg-light">
           <div class="card-header">
             Prevention Controls
           </div>
@@ -125,7 +129,14 @@
     var rawFormData = JSON.parse(decodeURIComponent(getQuerystring('formdata')))
     console.log('formdata', rawFormData)
 
-    
+    var calculatedFormData = {
+      totalWages: `<%= formData.wages %>`,
+      totalExpense: `<%= formData.totalExpense %>`,
+      totalAsset: `<%= formData.totalAsset %>`,
+      totalDebt: `<%= formData.totalDebt %>`
+    }
+    console.log('calculatedFormData', calculatedFormData, `<%= formData %>`)
+
 
     {
       //custom slider javascript
