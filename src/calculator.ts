@@ -6,7 +6,7 @@ export default class Calculator {
     values.forEach(val => {
       try {
         if (!Number.isNaN(val)) {
-          sum += val;
+          sum += Number.parseInt(val);
         }
       } catch (e) {
         // do nothing
