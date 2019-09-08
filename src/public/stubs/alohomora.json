@@ -487,7 +487,33 @@
       },
       "components": [
         {
-          "label": "Debt Amount",
+          "label": "Wages ",
+          "mask": false,
+          "tableView": true,
+          "alwaysEnabled": false,
+          "type": "number",
+          "input": true,
+          "key": "wages",
+          "validate": {
+              "customMessage": "",
+              "json": ""
+          },
+          "conditional": {
+              "show": "",
+              "when": "",
+              "json": ""
+          },
+          "reorder": false,
+          "delimiter": false,
+          "requireDecimal": false,
+          "encrypted": false,
+          "properties": {},
+          "customConditional": "",
+          "logic": [],
+          "attributes": {}
+      },
+      {
+          "label": "Bills",
           "allowMultipleMasks": false,
           "showWordCount": false,
           "showCharCount": false,
@@ -495,28 +521,181 @@
           "alwaysEnabled": false,
           "type": "textfield",
           "input": true,
-          "key": "debtAmount",
+          "key": "bills",
           "defaultValue": "",
           "validate": {
-            "customMessage": "",
-            "json": ""
+              "customMessage": "",
+              "json": ""
           },
           "conditional": {
-            "show": "",
-            "when": "",
-            "json": ""
+              "show": "",
+              "when": "",
+              "json": ""
           },
           "widget": {
-            "type": ""
+              "type": ""
           },
-          "properties": {},
           "reorder": false,
           "inputFormat": "plain",
           "encrypted": false,
+          "properties": {},
           "customConditional": "",
           "logic": [],
           "attributes": {}
-        },
+      },
+      {
+          "label": "Office expense",
+          "mask": false,
+          "tableView": true,
+          "alwaysEnabled": false,
+          "type": "number",
+          "input": true,
+          "key": "officeExpense",
+          "validate": {
+              "customMessage": "",
+              "json": ""
+          },
+          "conditional": {
+              "show": "",
+              "when": "",
+              "json": ""
+          },
+          "reorder": false,
+          "delimiter": false,
+          "requireDecimal": false,
+          "encrypted": false,
+          "properties": {},
+          "customConditional": "",
+          "logic": [],
+          "attributes": {}
+      },
+      {
+          "label": "Other expense",
+          "mask": false,
+          "tableView": true,
+          "alwaysEnabled": false,
+          "type": "number",
+          "input": true,
+          "key": "otherExpense",
+          "validate": {
+              "customMessage": "",
+              "json": ""
+          },
+          "conditional": {
+              "show": "",
+              "when": "",
+              "json": ""
+          },
+          "reorder": false,
+          "delimiter": false,
+          "requireDecimal": false,
+          "encrypted": false,
+          "properties": {},
+          "customConditional": "",
+          "logic": [],
+          "attributes": {}
+      },
+      {
+          "label": "Total Debts",
+          "columns": [
+              {
+                  "components": [
+                      {
+                          "label": "Total debt amount",
+                          "mask": false,
+                          "tableView": true,
+                          "alwaysEnabled": false,
+                          "type": "number",
+                          "input": true,
+                          "key": "debtAmount",
+                          "validate": {
+                              "customMessage": "",
+                              "json": ""
+                          },
+                          "conditional": {
+                              "show": "",
+                              "when": "",
+                              "json": ""
+                          },
+                          "delimiter": false,
+                          "requireDecimal": false,
+                          "encrypted": false,
+                          "properties": {},
+                          "customConditional": "",
+                          "logic": [],
+                          "attributes": {},
+                          "reorder": false
+                      }
+                  ],
+                  "width": 6,
+                  "offset": 0,
+                  "push": 0,
+                  "pull": 0,
+                  "type": "column",
+                  "input": false,
+                  "hideOnChildrenHidden": false,
+                  "key": "column",
+                  "tableView": true,
+                  "label": "Column"
+              },
+              {
+                  "components": [
+                      {
+                          "label": "Debt term (in years)",
+                          "mask": false,
+                          "tableView": true,
+                          "alwaysEnabled": false,
+                          "type": "number",
+                          "input": true,
+                          "key": "debtTermInYears",
+                          "validate": {
+                              "customMessage": "",
+                              "json": ""
+                          },
+                          "conditional": {
+                              "show": "",
+                              "when": "",
+                              "json": ""
+                          },
+                          "reorder": false,
+                          "delimiter": false,
+                          "requireDecimal": false,
+                          "encrypted": false,
+                          "properties": {},
+                          "customConditional": "",
+                          "logic": [],
+                          "attributes": {}
+                      }
+                  ],
+                  "width": 6,
+                  "offset": 0,
+                  "push": 0,
+                  "pull": 0,
+                  "type": "column",
+                  "input": false,
+                  "hideOnChildrenHidden": false,
+                  "key": "column",
+                  "tableView": true,
+                  "label": "Column"
+              }
+          ],
+          "mask": false,
+          "tableView": false,
+          "alwaysEnabled": false,
+          "type": "columns",
+          "input": false,
+          "key": "totalDebts",
+          "conditional": {
+              "show": "",
+              "when": "",
+              "json": ""
+          },
+          "reorder": false,
+          "properties": {},
+          "customConditional": "",
+          "logic": [],
+          "attributes": {}
+      },
         {
           "type": "htmlelement",
           "content": "<a class='redirect-buttons' href='/stubs/submission?formdata={{JSON.stringify(data)}}'>View Results</button>"
