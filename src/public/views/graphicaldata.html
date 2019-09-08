@@ -113,10 +113,12 @@
         <div class="card">
           <div class="card-header">
             <h1>With right steps, it's easy to recover from Bankruptcy</h1>
-            
+
           </div>
           <div class="card-body">
-            <center> <img src="https://technofaq.org/wp-content/uploads/2018/05/recovery-bankruptcy-road-sign-620x350.jpg"/> <center>
+            <center> <img
+                src="https://technofaq.org/wp-content/uploads/2018/05/recovery-bankruptcy-road-sign-620x350.jpg" />
+              <center>
           </div>
         </div>
       </div>
@@ -141,14 +143,34 @@
 
     var rawFormData = JSON.parse(decodeURIComponent(getQuerystring('formdata')))
     console.log('formdata', rawFormData)
-
-    var calculatedFormData = {
-      totalWages: `<%= formData.wages %>`,
-      totalExpense: `<%= formData.totalExpense %>`,
-      totalAsset: `<%= formData.totalAsset %>`,
-      totalDebt: `<%= formData.totalDebt %>`
+    var add = (...values) => {
+      let sum = 0;
+      values.forEach(val => {
+        try {
+          if (!Number.isNaN(val)) {
+            sum += Number.parseInt(val);
+          }
+        } catch (e) {
+          // do nothing
+        }
+      });
+      return sum;
     }
-    console.log('calculatedFormData', calculatedFormData, `<%= formData %>`)
+    let totalAssets = add([
+      rawFormData.estimatedEquipmentCost,
+      rawFormData.estimatedVehicleCost,
+      rawFormData.otherAssets,
+      rawFormData.totalInventoryValue,
+      rawFormData.totalPropertyValue
+    ]);
+    let totalExpense = add([
+      rawFormData.bills,
+      rawFormData.cashOutflow,
+      rawFormData.officeExpense,
+      rawFormData.otherExpense
+    ]);
+    let totalIncome = add([rawFormData.cashInflow, rawFormData.profit]);
+    let totalDebt = Math.ceil(rawFormData.debtAmount / rawFormData.debtTermInYears);
 
 
     {
