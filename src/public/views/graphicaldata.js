@@ -41,6 +41,12 @@ let totalExpense = add([
 let totalIncome = add([rawFormData.cashInflow, rawFormData.profit]);
 let totalDebt = Math.ceil(rawFormData.debtAmount / rawFormData.debtTermInYears);
 
+var turnColorTo = (color) => {
+    $('.smiley-green').css('opacity', 0.25)
+    $('.smiley-red').css('opacity', 0.25)
+    $('.smiley-yellow').css('opacity', 0.25)
+    $('.smiley-' + color).css('opacity', 1)
+}
 
 {
     //custom slider javascript
@@ -60,6 +66,13 @@ let totalDebt = Math.ceil(rawFormData.debtAmount / rawFormData.debtTermInYears);
 
     function updateHandle(el, val) {
         el.textContent = " " + "$" + val + " ";
+        if (val < 65000 && val >= 50000) {
+            turnColorTo('yellow');
+        } else if (val < 50000) {
+            turnColorTo('green');
+        } else {
+            turnColorTo('red');
+        }
     }
 }
 
@@ -127,9 +140,24 @@ let totalDebt = Math.ceil(rawFormData.debtAmount / rawFormData.debtTermInYears);
 }
 
 
+
+
+
 $(document).ready(function () {
     //when slider changes, hide start message
     $("input").on("change", function () {
         $("#helper").fadeOut("slow");
     });
+
+    var netDebtValue = (totalDebt - totalAssets);
+    if (netDebtValue < 0) //show green
+    { }
+
+    if ((totalExpense - totalIncome) < netDebtValue) {
+
+    }
+
+    turnColorTo('red');
+
+
 });
