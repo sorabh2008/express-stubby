@@ -5,7 +5,9 @@ export default class Calculator {
     let sum = 0;
     values.forEach(val => {
       try {
-        sum += val;
+        if (!Number.isNaN(val)) {
+          sum += val;
+        }
       } catch (e) {
         // do nothing
       }
