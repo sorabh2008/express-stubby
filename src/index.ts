@@ -1,14 +1,63 @@
-import express, { Application, Request, Response, NextFunction } from "express";
+import express, { Application, Request, Response, NextFunction, response } from "express";
 import fs from "fs";
 import cors from "cors";
 
+import axios from 'axios';
+
+var path = require('path');
+
 const app: Application = express();
 
+var bodyParser = require('body-parser');
+
+
+// view engine setup
+app.set('views', path.join(__dirname, 'public/views'));
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 app.get("/", (req: Request, res: Response, next: NextFunction) => {
-  res.send("I am ruunning!!!");
+  res.redirect("/debtform");
+  // res.send("I am ruunning!!!");
 });
+
+app.get("/debtform", (req: Request, res: Response, next: NextFunction) => {
+  res.render('index', { title: 'Alohomora: Debt form' });
+})
+
+app.get("/stubs/submission", (req: Request, res: Response, next: NextFunction) => {
+  // console.log('req.body', req.body.data)
+
+  // axios.get('/stubs/get_debt_history')
+  axios.get('http://localhost:9000/stubs/200.json')
+    .then(response => {
+      // console.log('success', response)
+      // res.json(req.body.data);
+      // res.json({ data: response });
+
+      res.render('graphicaldata', { title: "Alohomora: Debt Prediction", graphData: {} });
+    })
+    .catch(error => {
+      console.log('error', error)
+      res.json({ status: 500, msg: 'Internal server error!!' });
+    })
+
+
+  // res.render('graphicaldata', { title: "Alohomora: Debt Prediction" });
+})
+
+app.get('/stubs/get_debt_history', (req: Request, res: Response) => {
+  fs.readFile('/stubs/debt.json', 'utf-8', (err, fileContent) => {
+    console.log('www', fileContent)
+    res.json(fileContent);
+  })
+})
+
 app.get("/stubs/:id", (req: Request, res: Response) => {
   try {
     const resp = fs.readFileSync("./stubs/" + req.params.id + ".json", "utf-8");
