@@ -22,6 +22,12 @@
 
 `curl localhost:8081`
 
+Docker volume 
+`
+FROM nginx:latest
+VOLUME ["/usr/share/nginx/html/"]
+`
+
 ### Useful docker commands
 
 `docker container ls`
