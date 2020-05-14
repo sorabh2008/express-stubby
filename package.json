@@ -27,6 +27,7 @@
     "@types/cors": "^2.8.5",
     "@types/express": "^4.17.0",
     "@types/node": "^12.6.8",
+    "log4js": "^6.2.1",
     "nodemon": "^1.19.1",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
