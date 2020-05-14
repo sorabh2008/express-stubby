@@ -9,8 +9,11 @@
 
 `npm start`
 
-## ToDo:
-- Add logging
+## Logging:
+- app
+- error
+- pattern
+- default
 
 ## Docker build:
 
